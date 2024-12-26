@@ -1,16 +1,7 @@
 import { StatusBar } from 'expo-status-bar'
 import * as SplashScreen from 'expo-splash-screen'
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  ActivityIndicator,
-  TextInput,
-  Alert,
-  TouchableOpacity,
-} from 'react-native'
-import { COLORS, Spinner } from '@core'
+import { StyleSheet, View } from 'react-native'
+import { Button } from '@core'
 import { useFonts } from 'expo-font'
 import { useEffect } from 'react'
 
@@ -41,28 +32,14 @@ export default function App() {
       <Text style={{ fontFamily: 'PlaypenSans-Regular', fontSize: 24 }}>
         Hola world!
       </Text> */}
-      <Button
-        title='Presioname'
-        onPress={() => Alert.alert('Hola niños')}></Button>
-      <TouchableOpacity
-        style={{
-          backgroundColor: COLORS.primary,
-          padding: 12,
-          borderRadius: 5,
-          marginTop: 10,
-        }}
-        onPress={() => Alert.alert('Hola niños')}>
-        <Text style={{ color: COLORS.complementary, fontSize: 24 }}>
-          hola soy un boton{' '}
-        </Text>
-      </TouchableOpacity>
-      <ActivityIndicator size='large' color='blue'></ActivityIndicator>
+      {/* <ActivityIndicator size='large' color='blue'></ActivityIndicator>
       <TextInput
         style={{
           backgroundColor: 'grey',
           width: 300,
           padding: 16,
-        }}></TextInput>
+        }}></TextInput> */}
+      <Button title='holaaa' onPress={() => console.log('hello')}></Button>
       <StatusBar style='auto' />
       {/* <Spinner /> */}
     </View>
