@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { LoginScreen, RegisterScreen } from '@containers'
 
 const hideHeader = {headerShown: false}
 export function NavigationApp() {
@@ -15,11 +16,11 @@ export function NavigationApp() {
             <Stack.Navigator> 
                 {/* contenedores hijos */}
                 <Stack.Screen name='Login'
-                component={()=> <Text>Hola login</Text>}
+                component={LoginScreen}
                 options={hideHeader}>
                 </Stack.Screen>
                 <Stack.Screen name='Register'
-                component={()=> <Text>Hola registro</Text>}
+                component={RegisterScreen}
                 options={hideHeader}>
                 </Stack.Screen>
 

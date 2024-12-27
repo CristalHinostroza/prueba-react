@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   },
   txt:{
     color: COLORS.complementary, 
-    fontSize: 24 
+    fontSize: 24 ,
+    textAlign:'center',
   }
 })
