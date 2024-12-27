@@ -4,7 +4,7 @@ import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { LoginScreen, RegisterScreen } from '@containers'
+import { HomeScreen, LoginScreen, ProfileScreen, RegisterScreen } from '@containers'
 
 const hideHeader = {headerShown: false}
 export function NavigationApp() {
@@ -34,11 +34,11 @@ export function NavigationApp() {
         return(
             <Tab.Navigator>
                 <Tab.Screen name='Home' 
-                component={()=> <Text>Hola home</Text>}
+                component={HomeScreen}
                 options={hideHeader}>
                 </Tab.Screen>
                 <Tab.Screen name='Profile' 
-                component={()=> <Text>Hola profile</Text>}
+                component={ProfileScreen}
                 options={hideHeader}>
                 </Tab.Screen>
 
@@ -48,7 +48,7 @@ export function NavigationApp() {
 
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='Authentication'>
+        <Stack.Navigator initialRouteName='MainApp'>
             <Stack.Screen 
             name='Authentication'
             component={AuthStack}  
