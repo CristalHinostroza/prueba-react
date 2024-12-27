@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar'
+/* import { StatusBar } from 'expo-status-bar' */
 import * as SplashScreen from 'expo-splash-screen'
 import { StyleSheet, View } from 'react-native'
-import { Button } from '@core'
+import { Button, Input } from '@core'
 import { useFonts } from 'expo-font'
 import { useEffect } from 'react'
 
@@ -23,24 +23,9 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      {/*  <Text style={{ fontFamily: 'PlaypenSans-Bold', fontSize: 24 }}>
-        Hola world!
-      </Text>
-      <Text style={{ fontFamily: 'PlaypenSans-Light', fontSize: 24 }}>
-        Hola world!
-      </Text>
-      <Text style={{ fontFamily: 'PlaypenSans-Regular', fontSize: 24 }}>
-        Hola world!
-      </Text> */}
-      {/* <ActivityIndicator size='large' color='blue'></ActivityIndicator>
-      <TextInput
-        style={{
-          backgroundColor: 'grey',
-          width: 300,
-          padding: 16,
-        }}></TextInput> */}
+      <Input value='' onChange={console.log}></Input>
       <Button title='holaaa' onPress={() => console.log('hello')}></Button>
-      <StatusBar style='auto' />
+      {/*  <StatusBar style='auto' /> */}
       {/* <Spinner /> */}
     </View>
   )
