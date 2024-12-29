@@ -2,18 +2,36 @@
 import { StyleSheet, Text, View, Button as RNButton, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useSafeAreaInsets} from 'react-native-safe-area-context'
-import { Button, COLORS, Input } from '@core'
+import { Button, COLORS, Input, makeHttpRequest, Spinner, URL_API_REST } from '@core'
 
-export const LoginScreen = () => {
+
+export const LoginScreen = ({navigation}: any) => {
     const {top} =useSafeAreaInsets()
     const [email, setEmail]= useState('')
     const [password, setPassword] = useState('')
     /* console.log(email,password) */
-    function onSubmit(){
+    const [loading, setLoading] = useState(false)
+   async function onSubmit(){
         if (!email || !password){
             Alert.alert('Error', 'Todos los campos son obligatorios')
             return
         }
+        setLoading (true)
+       try{
+         await makeHttpRequest({
+            host: URL_API_REST,
+            method:'POST',
+            path:'/login',
+            body: {
+                email:email.toLocaleLowerCase(),
+                password,
+            },
+        })
+        navigation.navigate('MainApp')
+       }catch (error){
+        Alert.alert('error', error.message)
+       }
+       setLoading(false)
 
     }
 
@@ -30,7 +48,8 @@ export const LoginScreen = () => {
             <Input value={password} onChange={setPassword}></Input>
         </View>
         <View style={styles.buttonsContainers}>
-            <Button title='Iniciar sesión' onPress={()=> null}></Button>
+            {loading ? (<Spinner/>) : (<Button title='Iniciar sesión' onPress={onSubmit}></Button>)}
+            
             <RNButton title='Crear cuenta' onPress={()=> null}></RNButton>
         </View>
 
